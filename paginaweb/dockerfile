@@ -1,0 +1,2 @@
+FROM nginx:latest
+COPY ./paginaweb/usr/share/nginx/html/pagianweb

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Sistemas Operativos</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+    <title>PaginaWeb</title>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBHZYQj2PxpEJsYYal-ALKG6iMzSJcHkAQ",
+            authDomain: "paginaweb-78fe0.firebaseapp.com",
+            projectId: "paginaweb-78fe0",
+            storageBucket: "paginaweb-78fe0.appspot.com",
+            messagingSenderId: "584414879040",
+            appId: "1:584414879040:web:39710f3fc6cf4b80aeeea5",
+            measurementId: "G-2L3SVTMD7N"
+        };
+
+        if (firebase.apps.length === 0) {
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        const database = firebase.database();
+
+        function Guardar() {
+            var textoBaseDeDatos = database.ref("Matricula")
+            var input = document.getElementById("message")
+            textoBaseDeDatos.push({
+                contenido: input.value
+            })
+            alert("se envio correctamente!")
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // // The Firebase SDK is initialized and available here!
+            //
+            // firebase.auth().onAuthStateChanged(user => { });
+            // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+            // firebase.messaging().requestPermission().then(() => { });
+            // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Proyecto Sistemas Operativos</h1>
+
+    </header>
+
+    <section class="image-section">
+        <img src="https://th.bing.com/th/id/OIP.90_BDWk8wDOEohOLrTynEQHaFj?rs=1&pid=ImgDetMain"
+            alt="Imagen de un gatito">
+    </section>
+
+    <section class="form-section">
+        <p>Hola LMAD! ingresa tu matricula aqui abajo</p>
+            <label for="message">Matricula </label>
+            <input id="message" name="message" required></input>
+            <button type="button" onclick="Guardar()">enviar</button>
+    </section>
+    <footer>
+        <p>&copy; 2024 Proyecto Sistemas Operativos.</p>
+        <p>Fatima Salazar Loyola</p>
+        <p>Alan Yahir Correa Gutierrez</p>
+        <p>Doria Monserrat Castañeda Gastelum</p>
+    </footer>
+</body>
+
+</html>
